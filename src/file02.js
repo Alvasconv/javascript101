@@ -16,6 +16,7 @@ const frameworks = [
   "Solid|5 de julio de 2021|250,000|80%"
 ];
 
+
 /**
  * 1. Itere el arreglo frameworks.
  * Referencia: https://javascript.info/array#loops
@@ -40,3 +41,18 @@ const frameworks = [
  *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
  */
 
+frameworks.forEach(element => {
+  let arrayData = element.split("|");
+  let frameworkName = arrayData[0];
+  let releaseDate = arrayData[1];
+  let usersName = arrayData[2];
+  let popularityPercentage = arrayData[3];
+
+  const frameworkObj = new Object();
+  frameworkObj.frameworkName = frameworkName.trim();
+  frameworkObj.releaseDate = releaseDate.trim();
+  frameworkObj.usersName = usersName.trim();
+  frameworkObj.popularityPercentage = popularityPercentage.trim();
+
+  addRow(frameworkObj,  "data-frameworks");
+});
